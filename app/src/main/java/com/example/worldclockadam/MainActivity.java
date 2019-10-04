@@ -7,6 +7,8 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextClock;
@@ -29,7 +31,8 @@ public class MainActivity extends AppCompatActivity {
     public ImageView cityPhoto;
     public Button twelveHrButton;
     public Button twentyHrButton;
-    public Button hideButton;
+    public CheckBox hideCheckBox;
+
 
 
     //Clock
@@ -52,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
         cityPhoto.setImageResource(R.drawable.sydney);
         clock= sydney.findViewById(R.id.cityTime);
         clock.setTimeZone("Australia/Sydney");
+        clock.setFormat12Hour("E, h:mm:ss a");
 
         //Auckland
 
@@ -62,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
         cityPhoto.setImageResource(R.drawable.auckland);
         clock= auckland.findViewById(R.id.cityTime);
         clock.setTimeZone("Pacific/Auckland");
+        clock.setFormat12Hour("E, h:mm:ss a");
 
         //London
 
@@ -72,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
         cityPhoto.setImageResource(R.drawable.london);
         clock= london.findViewById(R.id.cityTime);
         clock.setTimeZone("Europe/London");
+        clock.setFormat12Hour("E, h:mm:ss a");
 
         //newyork
 
@@ -82,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
         cityPhoto.setImageResource(R.drawable.newyork);
         clock= newyork.findViewById(R.id.cityTime);
         clock.setTimeZone("America/New_York");
+        clock.setFormat12Hour("E, h:mm:ss a");
 
         //shanghai
 
@@ -92,6 +99,7 @@ public class MainActivity extends AppCompatActivity {
         cityPhoto.setImageResource(R.drawable.shanghai);
         clock = shanghai.findViewById(R.id.cityTime);
         clock.setTimeZone("Asia/Shanghai");
+        clock.setFormat12Hour("E, h:mm:ss a");
 
         //Tokyo
 
@@ -102,6 +110,7 @@ public class MainActivity extends AppCompatActivity {
         cityPhoto.setImageResource(R.drawable.tokyo);
         clock= tokyo.findViewById(R.id.cityTime);
         clock.setTimeZone("Asia/Tokyo");
+        clock.setFormat12Hour("E, h:mm:ss a");
 
         //Zurich
 
@@ -112,6 +121,88 @@ public class MainActivity extends AppCompatActivity {
         cityPhoto.setImageResource(R.drawable.zurich);
         clock= zurich.findViewById(R.id.cityTime);
         clock.setTimeZone("Europe/Zurich");
+        clock.setFormat12Hour("E, h:mm:ss a");
+
+        //Hide/unhide cities
+        hideCheckBox = findViewById(R.id.hide1);
+        hideCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    sydney.setVisibility(View.VISIBLE);
+                } else {
+                    sydney.setVisibility(View.GONE);
+                }
+            }
+        });
+
+        hideCheckBox = findViewById(R.id.hide);
+        hideCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    auckland.setVisibility(View.VISIBLE);
+                } else {
+                    auckland.setVisibility(View.GONE);
+                }
+            }
+        });
+
+        hideCheckBox = findViewById(R.id.hide2);
+        hideCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    london.setVisibility(View.VISIBLE);
+                } else {
+                    london.setVisibility(View.GONE);
+                }
+            }
+        });
+        hideCheckBox = findViewById(R.id.hide3);
+
+        hideCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    newyork.setVisibility(View.VISIBLE);
+                } else {
+                    newyork.setVisibility(View.GONE);
+                }
+            }
+        });
+
+
+        hideCheckBox = findViewById(R.id.hide4);
+
+        hideCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    shanghai.setVisibility(View.VISIBLE);
+                } else {
+                    shanghai.setVisibility(View.GONE);
+                }
+            }
+        });
+        hideCheckBox = findViewById(R.id.hide5);
+        hideCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    tokyo.setVisibility(View.VISIBLE);
+                } else {
+                    tokyo.setVisibility(View.GONE);
+                }
+            }
+        });
+
+        hideCheckBox = findViewById(R.id.hide6);
+        hideCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    zurich.setVisibility(View.VISIBLE);
+                } else {
+                    zurich.setVisibility(View.GONE);
+                }
+            }
+        });
+
+
 
 
 
@@ -123,25 +214,25 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View views) {
                 //change the clock to 12hr time
                 clock = sydney.findViewById(R.id.cityTime);
-                clock.setFormat12Hour("h:mm:ss a");
+                clock.setFormat12Hour("E, h:mm:ss a");
 
                 clock = auckland.findViewById(R.id.cityTime);
-                clock.setFormat12Hour("h:mm:ss a");
+                clock.setFormat12Hour("E, h:mm:ss a");
 
                 clock = london.findViewById(R.id.cityTime);
-                clock.setFormat12Hour("h:mm:ss a");
+                clock.setFormat12Hour("E, h:mm:ss a");
 
                 clock = newyork.findViewById(R.id.cityTime);
-                clock.setFormat12Hour("h:mm:ss a");
+                clock.setFormat12Hour("E, h:mm:ss a");
 
                 clock = shanghai.findViewById(R.id.cityTime);
-                clock.setFormat12Hour("h:mm:ss a");
+                clock.setFormat12Hour("E, h:mm:ss a");
 
                 clock = tokyo.findViewById(R.id.cityTime);
-                clock.setFormat12Hour("h:mm:ss a");
+                clock.setFormat12Hour("E, h:mm:ss a");
 
                 clock = zurich.findViewById(R.id.cityTime);
-                clock.setFormat12Hour("h:mm:ss a");
+                clock.setFormat12Hour("E, h:mm:ss a");
 
             }
 
@@ -153,25 +244,25 @@ public class MainActivity extends AppCompatActivity {
             //Change the clock to 24hr time
             public void onClick(View v) {
                 clock = sydney.findViewById(R.id.cityTime);
-                clock.setFormat12Hour("HH:mm:ss");
+                clock.setFormat12Hour("E, HH:mm:ss");
 
                 clock = auckland.findViewById(R.id.cityTime);
-                clock.setFormat12Hour("HH:mm:ss");
+                clock.setFormat12Hour("E, HH:mm:ss");
 
                 clock = london.findViewById(R.id.cityTime);
-                clock.setFormat12Hour("HH:mm:ss");
+                clock.setFormat12Hour("E, HH:mm:ss");
 
                 clock = newyork.findViewById(R.id.cityTime);
-                clock.setFormat12Hour("HH:mm:ss");
+                clock.setFormat12Hour("E, HH:mm:ss");
 
                 clock = shanghai.findViewById(R.id.cityTime);
-                clock.setFormat12Hour("HH:mm:ss");
+                clock.setFormat12Hour("E, HH:mm:ss");
 
                 clock = tokyo.findViewById(R.id.cityTime);
-                clock.setFormat12Hour("HH:mm:ss");
+                clock.setFormat12Hour("E, HH:mm:ss");
 
                 clock = zurich.findViewById(R.id.cityTime);
-                clock.setFormat12Hour("HH:mm:ss");
+                clock.setFormat12Hour("E, HH:mm:ss");
             }
 
 
